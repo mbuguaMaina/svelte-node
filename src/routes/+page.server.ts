@@ -20,7 +20,7 @@ export const actions = {
             return { msg: "cool" };
         } catch (error) {
             console.log(error)
-            return {err: error}
+            return {err: "error"}
         }
     }
 } satisfies Actions;
