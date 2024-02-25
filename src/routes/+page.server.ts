@@ -1,6 +1,6 @@
+import { writeFileSync } from 'node:fs';
+import { extname } from 'path';
 import type { Actions } from './$types';
-import { writeFileSync } from "fs"
-
 export const actions = {
     default: async ({ request }) => {
         const data = await request.formData()
@@ -9,8 +9,9 @@ export const actions = {
         console.log(images)
         for (let file  of images) {
             
-            const fileToUpload = file  as File
-            writeFileSync(`static/${fileToUpload.name}`, Buffer.from(await fileToUpload.arrayBuffer()));
+            const fileToUpload = file as File
+             const filename = `${crypto.randomUUID()}${extname(fileToUpload?.name)}`
+            writeFileSync(`static/${filename}`, Buffer.from(await fileToUpload.arrayBuffer()));
              
         }
             
