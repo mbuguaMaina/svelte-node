@@ -1,3 +1,4 @@
+import { json } from '@sveltejs/kit';
 import { writeFileSync } from 'node:fs';
 import { extname } from 'path';
 import type { Actions } from './$types';
@@ -8,7 +9,7 @@ export const actions = {
        
         const data = await request.formData()
       const images= data.getAll("images")
-      
+    
         for (let file  of images) {
             
             const fileToUpload = file as File
@@ -17,7 +18,7 @@ export const actions = {
              
         }
             
-            return { msg: "cool" };
+            return json({ msg: "cool" });
         } catch (error) {
             console.log(error)
             return {err: error}

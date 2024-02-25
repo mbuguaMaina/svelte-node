@@ -16,10 +16,14 @@
 	};
 </script>
 
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
-<form action="" method="post" use:enhance={submit} enctype="multipart/form-data">
+<form
+	class="flex flex-col gap-3"
+	action=""
+	method="post"
+	use:enhance={submit}
+	enctype="multipart/form-data"
+>
 	<input type="file" name="images" multiple id="" />
-	<input type="email" name="email" id="" />
-	<button type="submit">Submit</button>
+
+	<button class="bg-teal-400 w-max p-1 px-5" type="submit">Submit</button>
 </form>
