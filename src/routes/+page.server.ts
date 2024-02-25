@@ -1,7 +1,6 @@
 import { writeFileSync } from 'node:fs';
 import { extname } from 'path';
 import type { Actions } from './$types';
-import { json } from '@sveltejs/kit';
 export const actions = {
     default: async ({ request }) => {
         try {
@@ -18,7 +17,7 @@ export const actions = {
              
         }
             
-            return json{ msg: "cool" };
+            return { msg: "cool" };
         } catch (error) {
             console.log(error)
             return {err: error}
