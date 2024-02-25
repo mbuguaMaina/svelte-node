@@ -3,6 +3,9 @@ import { extname } from 'path';
 import type { Actions } from './$types';
 export const actions = {
     default: async ({ request }) => {
+        try {
+            
+       
         const data = await request.formData()
       const images= data.getAll("images")
       
@@ -14,6 +17,10 @@ export const actions = {
              
         }
             
-        return {msg:"cool"};
+            return { msg: "cool" };
+        } catch (error) {
+            console.log(error)
+            return {err: error}
+        }
     }
 } satisfies Actions;
