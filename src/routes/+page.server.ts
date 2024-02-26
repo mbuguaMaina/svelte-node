@@ -13,7 +13,7 @@ export const actions = {
             
             const fileToUpload = file as File
              const filename = `${crypto.randomUUID()}${extname(fileToUpload?.name)}`
-            awawriteFile(`static/${filename}`, Buffer.from(await fileToUpload.arrayBuffer()));
+            await writeFile(`static/${filename}`, Buffer.from(await fileToUpload.arrayBuffer()));
              
         }
             

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
 	import type { ActionData, PageData, SubmitFunction } from './$types';
-
+	import { readdirSync } from 'node:fs';
 	export let data: PageData;
 	export let form: ActionData;
 
@@ -14,6 +14,7 @@
 			await update();
 		};
 	};
+	$: images = readdirSync('./static');
 </script>
 
 <form
@@ -27,3 +28,7 @@
 
 	<button class="bg-teal-400 w-max p-1 px-5" type="submit">Submit</button>
 </form>
+
+{#each images as name}
+	<span>{name}</span>
+{/each}
