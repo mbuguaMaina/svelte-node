@@ -1,4 +1,4 @@
-import { writeFileSync } from 'node:fs';
+import { writeFile } from 'node:fs/promise';
 import { extname } from 'path';
 import type { Actions } from './$types';
 export const actions = {
@@ -13,7 +13,7 @@ export const actions = {
             
             const fileToUpload = file as File
              const filename = `${crypto.randomUUID()}${extname(fileToUpload?.name)}`
-            writeFileSync(`static/${filename}`, Buffer.from(await fileToUpload.arrayBuffer()));
+            awawriteFile(`static/${filename}`, Buffer.from(await fileToUpload.arrayBuffer()));
              
         }
             
